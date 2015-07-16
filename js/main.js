@@ -109,7 +109,7 @@ function(
                 }));
                 // startup drawer
                 this._drawer.startup();
-                //supply either the webmap id or, if available, the item info 
+                //supply either the webmap id or, if available, the item info
                 var itemInfo = this.config.itemInfo || this.config.webmap;
                 this._createWebMap(itemInfo);
             } else {
@@ -136,11 +136,11 @@ function(
         _pointerEventsSupport: function(){
             var element = document.createElement('x');
             element.style.cssText = 'pointer-events:auto';
-            return element.style.pointerEvents === 'auto';   
+            return element.style.pointerEvents === 'auto';
         },
         _initLegend: function(){
             var legendNode = dom.byId('LegendDiv');
-			
+
 			if(legendNode){
                 this._mapLegend = new Legend({
                     map: this.map,
@@ -169,70 +169,70 @@ function(
             if (this.config.enableAboutPanel) {
                 content = '';
                 content += '<div class="' + this.css.panelContainer + '">';
-             
+
 			    content += '<div class="' + this.css.panelHeader + '">Select</div>';
                 content += '<div class="' + this.css.panelPadding + '">';
 				content += '<table width="90%" style="font-size:10px;">';
-				
+
 				// QUERY STUFF
 				content += '<tr><td colspan="2">Year</td></tr>';
 				content += '<tr><td colspan="2"><select id="lstYear" class="theSelects">';
      			content += '</select></td></tr>';
-				
+
 				content += '<tr><td>Start Month</td>'
 				content += '<td>End Month</td></tr>';
-				
+
 				content += '<tr><td><select id="lstsmo" class="theSelects">';
 				content += '</select></td>'
-				
+
 				content += '<td><select id="lstemo" class="theSelects">';
 				content += '</select></td></tr>';
-				
+
 				content += '<tr><td>Start Day</td>'
 				content += '<td>End Day</td></tr>';
-				
+
 				content += '<tr><td><select id="lstsWeekday" class="theSelects">';
 				content += '</select></td>'
-				
+
 				content += '<td><select id="lsteWeekday" class="theSelects">';
 				content += '</select></td></tr>';
-				
+
 				content += '<tr><td>Start Time</td>'
 				content += '<td>End Time</td></tr>';
-				
+
 				content += '<tr><td><select id="lstsTime" class="theSelects">';
 				content += '</select></td>'
-				
+
 				content += '<td><select id="lsteTime" class="theSelects">';
 				content += '</select></td></tr>';
-				
+
 				content += '</table>';
 				content += '<br>';
-				
+
 				content += '<div class="grayDivs">';
 				content += 'County<br>';
 				content += '<select id="lstCounty"></select>';
 				content += '</div><br>';
-				
+
 				content += '<div class="regDivs">';
 				content += 'Severity<br>';
 				content += '<select id="lstSever" class="theSelects"></select><br>';
-				
+
 				content += 'Crash Type<br>';
 				content += '<select id="lstCtype" class="theSelects"></select><br>';
-				
+
 				content += 'Reporting Agency<br>';
 				content += '<select id="lstReportA" class="theSelects"></select>';
 				content += '</div><br>';
-				
+
 				content += '<div class="grayDivs">';
 				content += 'Vehicle Type<br>';
 				content += '<select id="lstVtype" class="theSelects"></select><br>';
-                
+
 				content += 'Circumstance<br>';
 				content += '<select id="lstCir" class="theSelects"></select>';
 				content += '</div><br>';
-				
+
 				content += '<div class="regDivs">';
 				content += '<table width="82%"><tr>'
 				content += '<td>Occupant Restraint</td>'
@@ -241,20 +241,20 @@ function(
 				content += '<td><select id="lstDriver" class="theSelects"></select></td></tr>';
 				content += '</table>'
 				content += '</div>';
-				
+
 				content += '<div class="regDivs">';
 				content += '<table width="100%"><tr>'
 				content += '<td><button id="btnQuery" type="button" onClick="theClick()">Update Map</button></td>';
 				content += '<td><p><button id="downloadLink" onClick="theExport()">Download</button><a id="dataLink" download="data.csv" href=""></a></p>';
 				content += '</td></tr></table>';
 				content += '</div>';
-				
+
 				content += '<b>Now showing:</b><br>';
 				content += '<span id="theWhereS">2014</span>';
-				
+
 				content += '</div>';
 				content += '</div>';
-				
+
                 // menu info
                 menuObj = {
                     title: this.config.i18n.general.about,
@@ -280,7 +280,7 @@ function(
 				content += '<span id="theWhereL">2014</span></div>';
                 content += '</div>';
                 content += '</div>';
-				
+
                 // menu info
                 menuObj = {
                     title: this.config.i18n.general.legend,
@@ -294,8 +294,8 @@ function(
                 else{
                     this.drawerMenus.push(menuObj);
                 }
-				
-				 
+
+
             }
             // Layers Panel
             if (this.config.enableLayersPanel) {
@@ -306,7 +306,7 @@ function(
 				content += '<br><br><div><b>Now showing:</b><br>';
 				content += '<span id="theWhereT">2014</span></div>';
                 content += '</div>';
-           
+
 		        // menu info
                 menuObj = {
                     title: this.config.i18n.general.layers,
@@ -368,7 +368,7 @@ function(
                 }));
                 /* END temporary until after JSAPI 4.0 is released */
             }
-            
+
 			// i18n overview placement
             var overviewPlacement = 'left';
             if(this.config.i18n.direction === 'rtl'){
@@ -399,12 +399,12 @@ function(
             // on body click containing underlay class
             on(document.body, '.dijitDialogUnderlay:click', function(){
                 // get all dialogs
-                var filtered = array.filter(registry.toArray(), function(w){ 
+                var filtered = array.filter(registry.toArray(), function(w){
                     return w && w.declaredClass == "dijit.Dialog";
                 });
                 // hide all dialogs
-                array.forEach(filtered, function(w){ 
-                    w.hide(); 
+                array.forEach(filtered, function(w){
+                    w.hide();
                 });
             });
             // hide loading div
@@ -420,7 +420,7 @@ function(
                         style: "width: 375px"
                     });
                     dialogModal.show();
-                }));    
+                }));
             }
 
             // swipe layer
@@ -448,7 +448,7 @@ function(
                             }
                         }));
                     }
-                }));  
+                }));
             }
             // drawer size check
             this._drawer.resize();
@@ -465,8 +465,8 @@ function(
             if(this._overviewMap){
                 var size = this._getOverviewMapSize();
                 if(this._overviewMap.hasOwnProperty('resize')){
-                    this._overviewMap.resize({ w:size, h:size });    
-                }                
+                    this._overviewMap.resize({ w:size, h:size });
+                }
             }
         },
         _checkMobileGeocoderVisibility: function () {
@@ -494,7 +494,7 @@ function(
             // set config title
             this.config.title = title;
             // window title
-            window.document.title = title;  
+            window.document.title = title;
         },
         _setTitleBar: function () {
             // map title node
@@ -571,7 +571,7 @@ function(
                     options.maxLocations = 5;
                     options.searchDelay = 100;
                 }
-                //If the World geocoder is primary enable auto complete 
+                //If the World geocoder is primary enable auto complete
                 if (hasEsri && esriIdx === 0) {
                     options.arcgisGeocoder = geocoders.splice(0, 1)[0]; //geocoders[0];
                     if (geocoders.length > 0) {
@@ -629,7 +629,7 @@ function(
             this._mobileGeocoderIconNode = dom.byId("mobileGeocoderIcon");
             this._mobileSearchNode = dom.byId("mobileSearch");
             this._mobileGeocoderIconContainerNode = dom.byId("mobileGeocoderIconContainer");
-            // mobile geocoder toggle 
+            // mobile geocoder toggle
             if (this._mobileGeocoderIconNode) {
                 on(this._mobileGeocoderIconNode, "click", lang.hitch(this, function () {
                     if (domStyle.get(this._mobileSearchNode, "display") === "none") {
@@ -676,8 +676,8 @@ function(
             }
             //can be defined for the popup like modifying the highlight symbol, margin etc.
            // arcgisUtils.createMap(itemInfo, "mapDiv", {
-			   
-		////////////////////////	   
+
+		////////////////////////
 		webmap = {};
          webmap.item = {
           "title":"Accident Mapper",
@@ -687,29 +687,31 @@ function(
 
         webmap.itemData = {
        		"operationalLayers": [{
-				"url": "http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer",
-				"layers": [{  
-            		"id": 0,  
-                	"layerDefinition": {  
-                		"definitionExpression": "ACC_YEAR = 2014"
-					},
-					"popupInfo": {  
+				//"url": "http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer",
+                "url": "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_fields/MapServer/0",
+				"layers": [{
+            		"id": 0,
+                	"layerDefinition": {
+                		//"definitionExpression": "ACC_YEAR = 2014"
+                        "definitionExpression": ""
+					}
+					/*"popupInfo": {
           				"title": "Accidents",
-						"fieldInfos": [  
-            				{"fieldName": "ACC_COUNTY","label": "County","visible": true,},  
+						"fieldInfos": [
+            				{"fieldName": "ACC_COUNTY","label": "County","visible": true,},
             				{"fieldName": "REPORTING_AGENCY","label": "Reporting Agency","visible": true,},
 							{"fieldName": "ACC_HOUR","label": "Hour","visible": true,},
 							{"fieldName": "ACC_DAY_OF_WEEK","label": "Day","visible": true,},
 							{"fieldName": "ACC_MONTH","label": "Month","visible": true,},
-							{"fieldName": "ACC_YEAR","label": "Year","visible": true,},             
-            				{"fieldName": "ACC_SEVERITY","label": "Severity","visible": true,}       
-						],  
-            			"description": null  
-            		}
+							{"fieldName": "ACC_YEAR","label": "Year","visible": true,},
+            				{"fieldName": "ACC_SEVERITY","label": "Severity","visible": true,}
+						],
+            			"description": null
+            		}*/
           		}],
            		"visibility": true,
          		"opacity": 1,
-            	"title": "Accidents"
+            	"title": "Oil Fields"
            	}],
           	"baseMap": {
             	"baseMapLayers": [{
@@ -725,12 +727,12 @@ function(
             	"title": "World_Terrain_Base"
           	},
           	"version": "1.1"
-        };	
-		
+        };
 
-			   
-		//////////////////////////////	   
-			arcgisUtils.createMap(webmap, "mapDiv", {	
+
+
+		//////////////////////////////
+			arcgisUtils.createMap(webmap, "mapDiv", {
                 mapOptions: {
                  //   infoWindow: customPopup
                     //Optionally define additional map config here for example you can
@@ -744,7 +746,7 @@ function(
                 //such as the map, operational layers, popup info and more. This object will also contain
                 //any custom options you defined for the template. In this example that is the 'theme' property.
                 //Here' we'll use it to update the application to match the specified color theme.
-               	
+
 				theMap = response.map;
 				this.map = response.map;
                 this.layers = response.itemInfo.itemData.operationalLayers;
@@ -765,9 +767,9 @@ function(
                         this._init();
                     }));
                 }
-				
+
 				legendLayers = arcgisUtils.getLegendLayers(response);
-				
+
 				// initialize the reporting agency drop down box
 				queryTask = new esri.tasks.QueryTask("http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer/0");
 				query = new esri.tasks.Query();
@@ -775,8 +777,8 @@ function(
 				query.outFields = ["REPORTING_AGENCY"];
 				query.where = "ACC_YEAR > 2009";
 				queryTask.execute(query,populateList);
-				
+
 			}), this.reportError);
         }
-	});	
+	});
 });
