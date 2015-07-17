@@ -17,12 +17,12 @@
     <meta name="Keywords" content="Accident Mapper, Map, KDOT" />
     <meta name="Description" content="The KDOT Accident Mapper" />
     <!-- End SEO -->
-    
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/submit_click.js"></script>
     <script type="text/javascript" src="js/export.js"></script>
     <script type="text/javascript" src="js/pop_boxes.js"></script>
-    
+
     <!--Use protocol relative urls that way if the browser is viewing the page via HTTPS the js/css file will be requested using the HTTPS protocol-->
     <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:300,400,700" />
@@ -105,8 +105,8 @@
         };
     </script>
     <script type="text/javascript" src="//js.arcgis.com/3.11/init.js"></script>
-   
-    
+
+
     <script type="text/javascript">
         require([
             "application/templateOptions",
@@ -117,15 +117,15 @@
             Template,
             Main
         ){
-            // create the template. This will take care of all the logic required for template applications 
+            // create the template. This will take care of all the logic required for template applications
             var myTemplate = new Template(templateOptions);
             // create my main application. Start placing your logic in the main.js file.
             var myApp = new Main();
             // start template
             myTemplate.startup().then(function(config) {
-                // The config object contains the following properties: helper services, (optionally) 
-                // i18n, appid, webmap and any custom values defined by the application. 
-                // In this example we have one called theme. 
+                // The config object contains the following properties: helper services, (optionally)
+                // i18n, appid, webmap and any custom values defined by the application.
+                // In this example we have one called theme.
                 myApp.startup(config);
             }, function(error) {
                 // something went wrong. Let's report it.
