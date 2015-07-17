@@ -688,7 +688,7 @@ function(
         webmap.itemData = {
        		"operationalLayers": [{
 				//"url": "http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer",
-                "url": "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_fields/MapServer/0",
+                "url": "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_fields/MapServer",
 				"layers": [{
             		"id": 0,
                 	"layerDefinition": {
