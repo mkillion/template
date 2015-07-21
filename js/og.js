@@ -1,3 +1,3 @@
 function mkTest() {
-	console.log('hey');
+	console.log('foobar');
 }

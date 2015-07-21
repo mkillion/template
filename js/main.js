@@ -802,17 +802,9 @@ function(
 				query.where = "ACC_YEAR > 2009";
 				queryTask.execute(query,populateList);
 
-                //MK add link to popup:
-                /*var link = domConstruct.create("a",{
-                    "class": "action",
-                    "id": "bufferLink",
-                    "innerHTML": "Buffer", //text that appears in the popup for the link
-                    "href": "javascript: void(0);"
-                  });
-
-                  //when the link is clicked register a function that will run
-                  on(link, "click", mkTest);*/
-                // end popup link.
+                // MK - add buffer link to popup:
+                $(".actionList").append("<a id='bufferLink' href='javascript: void(0);'>Buffer</a>");
+                $("#bufferLink").on("click", mkTest)
 
 			}), this.reportError);
 
