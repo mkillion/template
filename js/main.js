@@ -682,8 +682,8 @@ function(
 		////////////////////////
 		webmap = {};
          webmap.item = {
-          "title":"Accident Mapper",
-          "snippet": "This is the KDOT accident mapper.",
+          "title":"TEMPLATE TEST",
+          "snippet": "",
 		  "extent": [[-103, 35],[-94, 41]]
         };
 
@@ -695,20 +695,18 @@ function(
                 	"layerDefinition": {
                 		//"definitionExpression": "ACC_YEAR = 2014"
                         "definitionExpression": ""
-					}
-					/*"popupInfo": {
-          				"title": "Accidents",
+					},
+					"popupInfo": {
+                        "title": "{FIELD_NAME}",
 						"fieldInfos": [
-            				{"fieldName": "ACC_COUNTY","label": "County","visible": true,},
-            				{"fieldName": "REPORTING_AGENCY","label": "Reporting Agency","visible": true,},
-							{"fieldName": "ACC_HOUR","label": "Hour","visible": true,},
-							{"fieldName": "ACC_DAY_OF_WEEK","label": "Day","visible": true,},
-							{"fieldName": "ACC_MONTH","label": "Month","visible": true,},
-							{"fieldName": "ACC_YEAR","label": "Year","visible": true,},
-            				{"fieldName": "ACC_SEVERITY","label": "Severity","visible": true,}
+            				{"fieldName": "APPROXACRE","label": "Acres","visible": true,},
+            				{"fieldName": "STATUS","label": "Status","visible": true,},
+							{"fieldName": "FIELD_TYPE","label": "Type","visible": true,},
+							{"fieldName": "PROD_GAS","label": "Produces Gas","visible": true,},
+							{"fieldName": "PROD_OIL","label": "Produces Oil","visible": true,},
 						],
             			"description": null
-            		}*/
+            		}
           		}],
            		"visibility": true,
          		"opacity": 1,
