@@ -717,20 +717,19 @@ function(
                     "layerDefinition": {
                         //"definitionExpression": "ACC_YEAR = 2014"
                         "definitionExpression": ""
-                    }
-                    /*"popupInfo": {
-                        "title": "Accidents",
+                    },
+                    "popupInfo": {
+                        "title": "{LEASE_NAME}" + " " + "{WELL_NAME}",
                         "fieldInfos": [
-                            {"fieldName": "ACC_COUNTY","label": "County","visible": true,},
-                            {"fieldName": "REPORTING_AGENCY","label": "Reporting Agency","visible": true,},
-                            {"fieldName": "ACC_HOUR","label": "Hour","visible": true,},
-                            {"fieldName": "ACC_DAY_OF_WEEK","label": "Day","visible": true,},
-                            {"fieldName": "ACC_MONTH","label": "Month","visible": true,},
-                            {"fieldName": "ACC_YEAR","label": "Year","visible": true,},
-                            {"fieldName": "ACC_SEVERITY","label": "Severity","visible": true,}
+                            {"fieldName": "LEASE_NAME","label": "Lease","visible": true,},
+                            {"fieldName": "WELL_NAME","label": "Well","visible": true,},
+                            {"fieldName": "API_NUMBER","label": "API Number","visible": true,},
+                            {"fieldName": "OPERATOR_NAME","label": "Operator","visible": true,},
+                            {"fieldName": "WELL_CLASS","label": "Status","visible": true,},
+
                         ],
                         "description": null
-                    }*/
+                    }
                 }],
                 "visibility": true,
                 "opacity": 1,
@@ -794,13 +793,13 @@ function(
 
 				legendLayers = arcgisUtils.getLegendLayers(response);
 
-				// initialize the reporting agency drop down box
-				queryTask = new esri.tasks.QueryTask("http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer/0");
+				// KE - initialize the reporting agency drop down box
+				/*queryTask = new esri.tasks.QueryTask("http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer/0");
 				query = new esri.tasks.Query();
 				query.returnGeometry = false;
 				query.outFields = ["REPORTING_AGENCY"];
 				query.where = "ACC_YEAR > 2009";
-				queryTask.execute(query,populateList);
+				queryTask.execute(query,populateList);*/
 
                 // MK - add buffer link to popup:
                 $(".actionList").append("<a id='bufferLink' href='javascript: void(0);'>Buffer</a>");
