@@ -23,8 +23,7 @@ define([
     "dojo/_base/array",
 	"esri/tasks/query",
 	"esri/lang",
-	"esri/layers/FeatureLayer",
-    "esri/map"
+	"esri/layers/FeatureLayer"
 ],
 function(
     declare,
@@ -47,8 +46,7 @@ function(
     array,
 	Query,
 	esriLang,
-	FeatureLayer,
-    Map
+	FeatureLayer
 ) {
  	return declare("", [About], {
         config: {},
@@ -803,6 +801,18 @@ function(
 				query.outFields = ["REPORTING_AGENCY"];
 				query.where = "ACC_YEAR > 2009";
 				queryTask.execute(query,populateList);
+
+                //MK add link to popup:
+                /*var link = domConstruct.create("a",{
+                    "class": "action",
+                    "id": "bufferLink",
+                    "innerHTML": "Buffer", //text that appears in the popup for the link
+                    "href": "javascript: void(0);"
+                  });
+
+                  //when the link is clicked register a function that will run
+                  on(link, "click", mkTest);*/
+                // end popup link.
 
 			}), this.reportError);
 
