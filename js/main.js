@@ -803,7 +803,7 @@ function(
 
                 // MK - add buffer link to popup:
                 $(".actionList").append("<a id='bufferLink' href='javascript: void(0);'>Buffer</a>");
-                $("#bufferLink").on("click", mkTest)
+                $("#bufferLink").on("click", bufferFeature)
 
 			}), this.reportError);
 
