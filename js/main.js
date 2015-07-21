@@ -677,7 +677,7 @@ function(
             //can be defined for the popup like modifying the highlight symbol, margin etc.
            // arcgisUtils.createMap(itemInfo, "mapDiv", {
 
-		////////////////////////
+		// Define map and layers:
 		webmap = {};
          webmap.item = {
           "title":"TEMPLATE TEST",
@@ -753,8 +753,7 @@ function(
         };
 
 
-
-		//////////////////////////////
+		// Create map:
 			arcgisUtils.createMap(webmap, "mapDiv", {
                 mapOptions: {
                  //   infoWindow: customPopup
