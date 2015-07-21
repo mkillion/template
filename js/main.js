@@ -23,7 +23,8 @@ define([
     "dojo/_base/array",
 	"esri/tasks/query",
 	"esri/lang",
-	"esri/layers/FeatureLayer"
+	"esri/layers/FeatureLayer",
+    "esri/map"
 ],
 function(
     declare,
@@ -46,7 +47,8 @@ function(
     array,
 	Query,
 	esriLang,
-	FeatureLayer
+	FeatureLayer,
+    Map
 ) {
  	return declare("", [About], {
         config: {},
@@ -687,8 +689,7 @@ function(
 
         webmap.itemData = {
        		"operationalLayers": [{
-				//"url": "http://wfs.ksdot.org/arcgis_web_adaptor/rest/services/Transportation/Accidents/MapServer",
-                "url": "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_fields/MapServer",
+                "url": "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_fields_single/MapServer",
 				"layers": [{
             		"id": 0,
                 	"layerDefinition": {
@@ -712,7 +713,34 @@ function(
            		"visibility": true,
          		"opacity": 1,
             	"title": "Oil Fields"
-           	}],
+           	},
+            {
+                "url": "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_wells_single/MapServer",
+                "layers": [{
+                    "id": 0,
+                    "layerDefinition": {
+                        //"definitionExpression": "ACC_YEAR = 2014"
+                        "definitionExpression": ""
+                    }
+                    /*"popupInfo": {
+                        "title": "Accidents",
+                        "fieldInfos": [
+                            {"fieldName": "ACC_COUNTY","label": "County","visible": true,},
+                            {"fieldName": "REPORTING_AGENCY","label": "Reporting Agency","visible": true,},
+                            {"fieldName": "ACC_HOUR","label": "Hour","visible": true,},
+                            {"fieldName": "ACC_DAY_OF_WEEK","label": "Day","visible": true,},
+                            {"fieldName": "ACC_MONTH","label": "Month","visible": true,},
+                            {"fieldName": "ACC_YEAR","label": "Year","visible": true,},
+                            {"fieldName": "ACC_SEVERITY","label": "Severity","visible": true,}
+                        ],
+                        "description": null
+                    }*/
+                }],
+                "visibility": true,
+                "opacity": 1,
+                "title": "Oil Wells"
+            }
+            ],
           	"baseMap": {
             	"baseMapLayers": [{
               		"opacity": 1,
@@ -779,6 +807,7 @@ function(
 				queryTask.execute(query,populateList);
 
 			}), this.reportError);
+
         }
 	});
 });
