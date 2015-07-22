@@ -321,6 +321,31 @@ function(
                     this.drawerMenus.push(menuObj);
                 }
             }
+
+            // MK - add Goto panel:
+            if (this.config.enableFindByPanel) {
+                content = '';
+                //content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.layers + '</div>';
+                content += '<div class="' + this.css.panelContainer + '">';
+                //content += '<div id="TableOfContents"></div>';
+                content += '</div>';
+
+                // menu info
+                menuObj = {
+                    title: this.config.i18n.general.layers,
+                    label: '<div class="' + this.css.iconLayers + '"></div><div class="' + this.css.iconText + '">Find By</div>',
+                    content: content
+                };
+                // layers menu
+                if(this.config.defaultPanel === 'findby'){
+                    this.drawerMenus.splice(0,0,menuObj);
+                }
+                else{
+                    this.drawerMenus.push(menuObj);
+                }
+            }
+
+
             // menus
             this._drawerMenu = new DrawerMenu({
                 menus: this.drawerMenus
