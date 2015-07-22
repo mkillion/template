@@ -10,3 +10,8 @@ function filterWells() {
 	// TODO: open a dialog box here to multi-select filter options.
 	console.log('you clicked filterWells');
 }
+
+function labelWells() {
+	// TODO: switch labels, look for non-layer-swap solution. client-side labeling?
+	console.log('you clicked labelWells');
+}

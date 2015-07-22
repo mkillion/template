@@ -1,5 +1,5 @@
 
-#wells-filter-link {
+#wells-filter-link, #labels-link {
 	font-size: 12px;
-	vertical-align: middle;
+	text-decoration: none;
 }

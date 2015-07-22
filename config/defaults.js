@@ -13,7 +13,7 @@ define({
     //color theme.
     "title": "TEMPLATE TEST",
     "summary": "",
-    "defaultPanel": "legend",
+    "defaultPanel": "layers",
     "enableDialogModal": false,
     "dialogModalContent": "",
     "dialogModalTitle": "",
