@@ -249,8 +249,8 @@ function(
 				content += '</td></tr></table>';
 				content += '</div>';
 
-				content += '<b>Now showing:</b><br>';
-				content += '<span id="theWhereS">2014</span>';
+				/*content += '<b>Now showing:</b><br>';
+				content += '<span id="theWhereS">2014</span>';*/
 
 				content += '</div>';
 				content += '</div>';
@@ -275,9 +275,9 @@ function(
                 content += '<div class="' + this.css.panelContainer + '">';
                 content += '<div class="' + this.css.panelPadding + '">';
             	//content += '<div id="LegendDiv"></div>';
-				content += '<div><img src="images/legend.jpg" alt="legend"></div>';
-				content += '<br><br><div><b>Now showing:</b><br>';
-				content += '<span id="theWhereL">2014</span></div>';
+				//content += '<div><img src="images/legend.jpg" alt="legend"></div>';
+				/*content += '<br><br><div><b>Now showing:</b><br>';
+				content += '<span id="theWhereL">2014</span></div>';*/
                 content += '</div>';
                 content += '</div>';
 
@@ -303,8 +303,8 @@ function(
                 content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.layers + '</div>';
                 content += '<div class="' + this.css.panelContainer + '">';
                 content += '<div id="TableOfContents"></div>';
-				content += '<br><br><div><b>Now showing:</b><br>';
-				content += '<span id="theWhereT">2014</span></div>';
+				/*content += '<br><br><div><b>Now showing:</b><br>';
+				content += '<span id="theWhereT">2014</span></div>';*/
                 content += '</div>';
 
 		        // menu info
