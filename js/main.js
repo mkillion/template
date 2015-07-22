@@ -76,7 +76,9 @@ function(
                 desktopGeocoderTheme: "geocoder-desktop",
                 mobileGeocoderTheme: "geocoder-mobile",
                 appLoading: "app-loading",
-                appError: "app-error"
+                appError: "app-error",
+                // MK:
+                iconBookmark: "icon-bookmark"
             };
             // pointer event support
             if(this._pointerEventsSupport()){
@@ -333,7 +335,7 @@ function(
                 // menu info
                 menuObj = {
                     title: this.config.i18n.general.layers,
-                    label: '<div class="' + this.css.iconLayers + '"></div><div class="' + this.css.iconText + '">Find By</div>',
+                    label: '<div class="' + this.css.iconBookmark + '"></div><div class="' + this.css.iconText + '">Find By</div>',
                     content: content
                 };
                 // layers menu
