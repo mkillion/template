@@ -695,7 +695,7 @@ function(
                         "definitionExpression": ""
 					},
 					"popupInfo": {
-                        "title": "{FIELD_NAME}",
+                        "title": "FIELD: {FIELD_NAME}",
 						"fieldInfos": [
             				{"fieldName": "APPROXACRE","label": "Acres","visible": true,},
             				{"fieldName": "STATUS","label": "Status","visible": true,},
@@ -719,7 +719,7 @@ function(
                         "definitionExpression": ""
                     },
                     "popupInfo": {
-                        "title": "{LEASE_NAME}" + " " + "{WELL_NAME}",
+                        "title": "WELL: {LEASE_NAME}" + " " + "{WELL_NAME}",
                         "fieldInfos": [
                             {"fieldName": "LEASE_NAME","label": "Lease","visible": true,},
                             {"fieldName": "WELL_NAME","label": "Well","visible": true,},
@@ -801,8 +801,12 @@ function(
 				queryTask.execute(query,populateList);*/
 
                 // MK - add buffer link to popup:
-                $(".actionList").append("<a id='bufferLink' href='javascript: void(0);'>Buffer</a>");
-                $("#bufferLink").on("click", bufferFeature)
+                $(".actionList").append("<a id='buffer-link' href='javascript: void(0);'>Buffer</a>");
+                $("#buffer-link").on("click", bufferFeature);
+
+                // MK - add filter link to wells layer in toc:
+                $("[title='Oil Wells']").append("<a id='wells-filter-link' href='javascript: void(0);'>Filter</a>");
+                $("#wells-filter-link").on("click", filterWells);
 
 			}), this.reportError);
 
