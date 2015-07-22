@@ -805,7 +805,7 @@ function(
                 $("#buffer-link").on("click", bufferFeature);
 
                 // MK - add filter link to wells layer in toc:
-                $("[title='Oil Wells']").append("<a id='wells-filter-link' href='javascript: void(0);'>Filter</a>");
+                $("[title='Oil Wells']").after("<a id='wells-filter-link' href='javascript: void(0);'>Filter</a>");
                 $("#wells-filter-link").on("click", filterWells);
 
 			}), this.reportError);
