@@ -1,13 +1,13 @@
-/* MK - downloaded new fontello set to include extra icons. When adding icons may have to edit content codes for
-existing esri classes (.HomeButtonCalcite, .LocateButtonCalcite, .esriGeocoderSearch, .esriGeocoderReset) in custom section to match new code values. */
+
+/* MK - downloaded new fontello set to include bookmark and zoom-in icons. Edited content codes for .HomeButtonCalcite and .LocateButtonCalcite in custom section to match new code values. */
 
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?33771679');
-  src: url('../font/fontello.eot?33771679#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff?33771679') format('woff'),
-       url('../font/fontello.ttf?33771679') format('truetype'),
-       url('../font/fontello.svg?33771679#fontello') format('svg');
+  src: url('../font/fontello.eot?90107311');
+  src: url('../font/fontello.eot?90107311#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?90107311') format('woff'),
+       url('../font/fontello.ttf?90107311') format('truetype'),
+       url('../font/fontello.svg?90107311#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -17,7 +17,7 @@ existing esri classes (.HomeButtonCalcite, .LocateButtonCalcite, .esriGeocoderSe
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?33771679#fontello') format('svg');
+    src: url('../font/fontello.svg?90107311#fontello') format('svg');
   }
 }
 */
@@ -84,7 +84,6 @@ existing esri classes (.HomeButtonCalcite, .LocateButtonCalcite, .esriGeocoderSe
 .icon-list:before { content: '\e818'; } /* '' */
 .icon-location:before { content: '\e819'; } /* '' */
 .icon-zoom-in:before { content: '\e81a'; } /* '' */
-.icon-wrench:before { content: '\e81b'; } /* '' */
 
 
 /* custom. don't remove */
