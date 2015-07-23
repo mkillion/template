@@ -539,6 +539,12 @@ input[type=text]::-ms-clear {
 .esriRTL .drawer-menu-buttons .item {
     float: right;
 }
+
+/* MK - add a .drawer-menu-X for however many items you have. */
+.drawer-menu-4 .drawer-menu-buttons .item {
+    width: 25%;
+}
+
 .drawer-menu-3 .drawer-menu-buttons .item {
     width: 33.3%;
 }
