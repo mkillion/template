@@ -78,7 +78,7 @@ function(
                 appLoading: "app-loading",
                 appError: "app-error",
                 // MK:
-                iconBookmark: "icon-bookmark"
+                iconZoomTo: "icon-zoom-in"
             };
             // pointer event support
             if(this._pointerEventsSupport()){
@@ -325,7 +325,7 @@ function(
             }
 
             // MK - add Goto panel:
-            if (this.config.enableFindByPanel) {
+            if (this.config.enableZoomToPanel) {
                 content = '';
                 //content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.layers + '</div>';
                 content += '<div class="' + this.css.panelContainer + '">';
@@ -335,11 +335,11 @@ function(
                 // menu info
                 menuObj = {
                     title: this.config.i18n.general.layers,
-                    label: '<div class="' + this.css.iconBookmark + '"></div><div class="' + this.css.iconText + '">Find By</div>',
+                    label: '<div class="' + this.css.iconZoomTo + '"></div><div class="' + this.css.iconText + '">Zoom To</div>',
                     content: content
                 };
                 // layers menu
-                if(this.config.defaultPanel === 'findby'){
+                if(this.config.defaultPanel === 'zoomto'){
                     this.drawerMenus.splice(0,0,menuObj);
                 }
                 else{

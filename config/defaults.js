@@ -13,7 +13,7 @@ define({
     //color theme.
     "title": "TEMPLATE TEST",
     "summary": "",
-    "defaultPanel": "layers",   // MK - use lowercase.
+    "defaultPanel": "layers",
     "enableDialogModal": false,
     "dialogModalContent": "",
     "dialogModalTitle": "",
@@ -36,7 +36,7 @@ define({
   	"bitlyLogin": "esri",
     "bitlyKey": "R_65fd9891cd882e2a96b99d4bda1be00e",
     // MK:
-    "enableFindByPanel": true,
+    "enableZoomToPanel": true,
 
     //Enter the url to your organizations bing maps key if you want to use bing basemaps
     "bingmapskey": "",

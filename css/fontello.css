@@ -101,8 +101,8 @@
 .esriRTL .map .calcite .titleButton.next:before {content: '\e80a';}
 .esriRTL .map .calcite .titleButton.prev:before {content: '\e807';}
 .dijitDialogCloseIcon:before { content: '\e80c'; }
-.esriGeocoderSearch:before { content: '\e800'; }
-.esriGeocoderReset:before { content: '\e80c'; }
+.esriGeocoderSearch:before { content: '\e80e'; }
+.esriGeocoderReset:before { content: '\e806'; }
 .esriGeocoderMenuArrow:before { content: '\e807'; }
 .esriGeocoderMenuActive .esriGeocoderMenuArrow:before { content: '\e814'; }
 .HomeButtonCalcite .home:before { content: '\e80a';}
