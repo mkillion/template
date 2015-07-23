@@ -37,6 +37,7 @@ define({
     "bitlyKey": "R_65fd9891cd882e2a96b99d4bda1be00e",
     // MK:
     "enableZoomToPanel": true,
+    "enableToolsPanel": true,
 
     //Enter the url to your organizations bing maps key if you want to use bing basemaps
     "bingmapskey": "",

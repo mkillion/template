@@ -78,7 +78,8 @@ function(
                 appLoading: "app-loading",
                 appError: "app-error",
                 // MK:
-                iconZoomTo: "icon-zoom-in"
+                iconZoomTo: "icon-zoom-in",
+                iconWrench: "icon-wrench"
             };
             // pointer event support
             if(this._pointerEventsSupport()){
@@ -168,7 +169,7 @@ function(
             this.drawerMenus = [];
             var content, menuObj;
 
-
+            // Zoom To panel:
             if (this.config.enableZoomToPanel) {
                 content = '';
                 content += '<div class="' + this.css.panelContainer + '">';
@@ -264,7 +265,7 @@ function(
                     label: '<div class="' + this.css.iconZoomTo + '"></div><div class="' + this.css.iconText + '">Zoom To</div>',
                     content: content
                 };
-                // map menu
+
                 if(this.config.defaultPanel === 'zoomto'){
                     this.drawerMenus.splice(0,0,menuObj);
                 }
@@ -273,6 +274,36 @@ function(
                 }
             }
 
+            // Tools panel:
+            if (this.config.enableToolsPanel) {
+                content = '';
+
+                content += '<div class="' + this.css.panelContainer + '">';
+                content += '<div class="' + this.css.panelHeader + '">Tools</div>';
+                content += '<div class="' + this.css.panelPadding + '">';
+                //content += '<div id="LegendDiv"></div>';
+                //content += '<div><img src="images/legend.jpg" alt="legend"></div>';
+                /*content += '<br><br><div><b>Now showing:</b><br>';
+                content += '<span id="theWhereL">2014</span></div>';*/
+                content += '</div>';
+                content += '</div>';
+
+                // menu info
+                menuObj = {
+                    title: this.config.i18n.general.legend,
+                    label: '<div class="' + this.css.iconWrench + '"></div><div class="' + this.css.iconText + '">Tools</div>',
+                    content: content
+                };
+
+                if(this.config.defaultPanel === 'tools'){
+                    this.drawerMenus.splice(0,0,menuObj);
+                }
+                else{
+                    this.drawerMenus.push(menuObj);
+                }
+            }
+
+            // Legend panel:
             if (this.config.enableLegendPanel) {
                 content = '';
                 content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.legend + '</div>';
@@ -301,7 +332,8 @@ function(
 
 
             }
-            // Layers Panel
+
+            // Layers panel:
             if (this.config.enableLayersPanel) {
                 content = '';
                 content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.layers + '</div>';
@@ -341,6 +373,7 @@ function(
                 }, 'LocateButton');
                 this._LB.startup();
             }
+
             // home button
             if (this.config.enableHomeButton) {
                 this._HB = new HomeButton({
@@ -355,6 +388,7 @@ function(
                     }
                 }));
             }
+
             // basemap toggle
             if (this.config.enableBasemapToggle) {
                 var BT = new BasemapToggle({
