@@ -167,12 +167,13 @@ function(
             // menu panels
             this.drawerMenus = [];
             var content, menuObj;
-            // map panel enabled
-            if (this.config.enableAboutPanel) {
+
+
+            if (this.config.enableZoomToPanel) {
                 content = '';
                 content += '<div class="' + this.css.panelContainer + '">';
 
-			    content += '<div class="' + this.css.panelHeader + '">Select</div>';
+			    content += '<div class="' + this.css.panelHeader + '">Zoom To</div>';
                 content += '<div class="' + this.css.panelPadding + '">';
 				content += '<table width="90%" style="font-size:10px;">';
 
@@ -260,17 +261,18 @@ function(
                 // menu info
                 menuObj = {
                     title: this.config.i18n.general.about,
-                    label: '<div class="' + this.css.iconAbout + '"></div><div class="' + this.css.iconText + '">' + this.config.i18n.general.about + '</div>',
+                    label: '<div class="' + this.css.iconZoomTo + '"></div><div class="' + this.css.iconText + '">Zoom To</div>',
                     content: content
                 };
                 // map menu
-                if(this.config.defaultPanel === 'about'){
+                if(this.config.defaultPanel === 'zoomto'){
                     this.drawerMenus.splice(0,0,menuObj);
                 }
                 else{
                     this.drawerMenus.push(menuObj);
                 }
             }
+
             if (this.config.enableLegendPanel) {
                 content = '';
                 content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.legend + '</div>';
@@ -324,28 +326,6 @@ function(
                 }
             }
 
-            // MK - add Goto panel:
-            if (this.config.enableZoomToPanel) {
-                content = '';
-                //content += '<div class="' + this.css.panelHeader + '">' + this.config.i18n.general.layers + '</div>';
-                content += '<div class="' + this.css.panelContainer + '">';
-                //content += '<div id="TableOfContents"></div>';
-                content += '</div>';
-
-                // menu info
-                menuObj = {
-                    title: this.config.i18n.general.layers,
-                    label: '<div class="' + this.css.iconZoomTo + '"></div><div class="' + this.css.iconText + '">Zoom To</div>',
-                    content: content
-                };
-                // layers menu
-                if(this.config.defaultPanel === 'zoomto'){
-                    this.drawerMenus.splice(0,0,menuObj);
-                }
-                else{
-                    this.drawerMenus.push(menuObj);
-                }
-            }
 
 
             // menus
