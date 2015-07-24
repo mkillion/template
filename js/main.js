@@ -565,14 +565,6 @@ function(
                     break;
                 case "polygon":
                     var ext = feature.geometry.getExtent();
-
-                    // Pad extent so entire feature is visible when zoomed to:
-                    /*var padding = 1000;
-                    ext.xmax += padding;
-                    ext.xmin -= padding;
-                    ext.ymax += padding;
-                    ext.ymin -= padding;*/
-
                     theMap.setExtent(ext, true);
 
                     /*var lyrId = results[0].layerId;
