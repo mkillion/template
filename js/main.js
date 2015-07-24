@@ -511,30 +511,34 @@ function(
                 var extType = pairs[0].substring(11);
                 var extValue = pairs[1].substring(12);
 
-                var find = new FindTask("http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_wells_single/MapServer");
+                var findURL = "";
                 var findParams = new FindParameters();
                 findParams.returnGeometry = true;
                 findParams.contains = false;
 
                 switch (extType) {
                     case "well":
+                        findURL = "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_wells_single/MapServer";
                         findParams.layerIds = [0];
                         findParams.searchFields = ["kid"];
                         break;
                     case "field":
-                        findParams.layerIds = [1];
+                        findURL = "http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_fields_single/MapServer";
+                        findParams.layerIds = [0];
                         findParams.searchFields = ["field_kid"];
-                        fieldsLayer.show();
-                        dojo.byId('fields').checked = 'checked';
+                        // TODO: reinstate this?
+                        /*fieldsLayer.show();
+                        dojo.byId('fields').checked = 'checked';*/
                         break;
                 }
+
+                var find = new FindTask(findURL);
+                findParams.searchText = extValue;
+                find.execute(findParams,this.zoomToResults);
 
                 // TODO: tie last location to the Home button?
                 //lastLocType = extType;
                 //lastLocValue = extValue;
-
-                findParams.searchText = extValue;
-                find.execute(findParams,this.zoomToResults);
             }
         },
         zoomToResults: function(results) {
@@ -563,18 +567,19 @@ function(
                     var ext = feature.geometry.getExtent();
 
                     // Pad extent so entire feature is visible when zoomed to:
-                    var padding = 1000;
+                    /*var padding = 1000;
                     ext.xmax += padding;
                     ext.xmin -= padding;
                     ext.ymax += padding;
-                    ext.ymin -= padding;
+                    ext.ymin -= padding;*/
 
-                    theMap.setExtent(ext);
+                    theMap.setExtent(ext, true);
 
-                    var lyrId = results[0].layerId;
-                    showPoly(feature,lyrId);
+                    /*var lyrId = results[0].layerId;
+                    showPoly(feature,lyrId);*/
                     break;
             }
+            // TODO: highlight feature and open popup.
         },
         // End MK functions.
         _getOverviewMapSize: function(){
