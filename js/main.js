@@ -23,7 +23,11 @@ define([
     "dojo/_base/array",
 	"esri/tasks/query",
 	"esri/lang",
-	"esri/layers/FeatureLayer"
+	"esri/layers/FeatureLayer",
+    "esri/tasks/FindTask",
+    "esri/tasks/FindParameters",
+    "esri/geometry/Point",
+    "esri/SpatialReference"
 ],
 function(
     declare,
@@ -46,7 +50,11 @@ function(
     array,
 	Query,
 	esriLang,
-	FeatureLayer
+	FeatureLayer,
+    FindTask,
+    FindParameters,
+    Point,
+    SpatialReference
 ) {
  	return declare("", [About], {
         config: {},
@@ -493,7 +501,82 @@ function(
             }
             // drawer size check
             this._drawer.resize();
+
+            this.urlZoom(location.search.substr(1));
         },
+        // Begin MK functions:
+        urlZoom: function(params) {
+            var pairs = params.split("&");
+            if (pairs.length > 1) {
+                var extType = pairs[0].substring(11);
+                var extValue = pairs[1].substring(12);
+
+                var find = new FindTask("http://services.kgs.ku.edu/arcgis/rest/services/oilgas/oilgas_wells_single/MapServer");
+                var findParams = new FindParameters();
+                findParams.returnGeometry = true;
+                findParams.contains = false;
+
+                switch (extType) {
+                    case "well":
+                        findParams.layerIds = [0];
+                        findParams.searchFields = ["kid"];
+                        break;
+                    case "field":
+                        findParams.layerIds = [1];
+                        findParams.searchFields = ["field_kid"];
+                        fieldsLayer.show();
+                        dojo.byId('fields').checked = 'checked';
+                        break;
+                }
+
+                // TODO: tie last location to the Home button?
+                //lastLocType = extType;
+                //lastLocValue = extValue;
+
+                findParams.searchText = extValue;
+                find.execute(findParams,this.zoomToResults);
+            }
+        },
+        zoomToResults: function(results) {
+            // TODO: reinstate this error msg?
+            /*if (results.length === 0) {
+                // Show warning dialog box:
+                dojo.byId('warning_msg').innerHTML = "This search did not return any features.<br>Please check your entries and try again.";
+                dijit.byId('warning_box').show();
+            }*/
+
+            var feature = results[0].feature;
+
+            switch (feature.geometry.type) {
+                case "point":
+                    var x = feature.geometry.x;
+                    var y = feature.geometry.y;
+
+                    //d var point = new Point([x,y],sr);
+                    var point = new Point(x, y, new SpatialReference({ wkid: 3857 }));
+                    theMap.centerAndZoom(point,16);
+
+                    /*var lyrId = results[0].layerId;
+                    showPoint(feature,lyrId);*/
+                    break;
+                case "polygon":
+                    var ext = feature.geometry.getExtent();
+
+                    // Pad extent so entire feature is visible when zoomed to:
+                    var padding = 1000;
+                    ext.xmax += padding;
+                    ext.xmin -= padding;
+                    ext.ymax += padding;
+                    ext.ymin -= padding;
+
+                    theMap.setExtent(ext);
+
+                    var lyrId = results[0].layerId;
+                    showPoly(feature,lyrId);
+                    break;
+            }
+        },
+        // End MK functions.
         _getOverviewMapSize: function(){
             var breakPoint = 500;
             var size = 150;
